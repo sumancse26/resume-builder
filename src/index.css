@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+@reference "tailwindcss";
+
+@layer base {
+    :root {
+        --primary: #0369a1;
+        --foreground-rgb: rgb(211, 216, 232);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --foreground-rgb: 255, 255, 255;
+    }
+}
