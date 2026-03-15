@@ -1,281 +1,333 @@
 const ResumePreview = () => {
+
+    const resume = {
+        name: "MD. SUMAN SARKAR",
+        title: "Software Engineer",
+
+        contact: {
+            phone: "+8801796844288",
+            email: "suman.iu32@gmail.com",
+            location: "Dhaka, Bangladesh"
+        },
+
+        social: {
+            linkedin: "linkedin.com/in/suman",
+            github: "github.com/suman",
+            portfolio: "suman.dev",
+            leetcode: "leetcode.com/suman"
+        },
+
+        about:
+            "Software Engineer with 4+ years of experience designing scalable web applications and enterprise ERP systems. Skilled in React.js, Next.js, Node.js and Laravel. Experienced in building reusable UI components, REST APIs, and improving system performance.",
+
+        skills: [
+            "JavaScript",
+            "TypeScript",
+            "React.js",
+            "Next.js",
+            "Node.js",
+            "Nest.js",
+            "Laravel",
+            "TailwindCSS",
+            "REST APIs",
+            "Git",
+            "Docker",
+            "MySQL"
+        ],
+
+        experience: [
+            {
+                company: "MononSoft Ltd",
+                duration: "Dec 2021 – Present",
+                role: "Software Engineer",
+                description:
+                    "Developed ERP modules using React.js and Laravel including Production Planning (PP), Material Management (MM), and FICO modules. Built reusable frontend components and collaborated with backend teams to design scalable REST APIs."
+            }
+        ],
+
+        projects: [
+            {
+                name: "ERP Management System",
+                description:
+                    "Enterprise resource planning system for production planning, inventory management, and finance operations.",
+                github: "github.com/suman/erp-system",
+                live: "erp-demo.vercel.app",
+                tech: ["React.js", "Node.js", "Laravel", "MySQL"]
+            },
+            {
+                name: "E-Commerce Web Application",
+                description:
+                    "Full-stack e-commerce platform with authentication, product management, and payment integration.",
+                github: "github.com/suman/ecommerce-app",
+                live: "ecommerce-demo.vercel.app",
+                tech: ["Next.js", "Node.js", "MongoDB", "TailwindCSS"]
+            }
+        ],
+
+        education: [
+            {
+                institute: "Islamic University",
+                year: "2018",
+                degree: "M.Sc in Computer Science & Engineering",
+                description:
+                    "Focused on advanced software engineering, distributed systems and modern development practices."
+            },
+            {
+                institute: "Islamic University",
+                year: "2017",
+                degree: "B.Sc in Computer Science & Engineering",
+                description:
+                    "Studied algorithms, operating systems, databases and modern web development."
+            }
+        ],
+
+        training: [
+            {
+                title: "Web Development with React, Next.js & Prisma",
+                institute: "Ostad Ltd, Dhaka",
+                description: [
+                    "Built scalable React applications using reusable component architecture",
+                    "Implemented server-side rendering using Next.js",
+                    "Designed REST APIs and backend services with modern development practices",
+                    "Optimized performance and improved frontend architecture"
+                ]
+            }
+        ],
+
+        additionalSkills: [
+            "Strong foundation in Object-Oriented Programming (OOP), Algorithms, and Data Structures",
+            "Knowledge of Web Services such as REST / JSON APIs",
+            "Experienced with Node.js, TypeScript, React.js, Express.js, Redux, Tailwind CSS, Bootstrap",
+            "Experience working with PostgreSQL, MongoDB, and MySQL",
+            "Experience with Software Development Life Cycle (SDLC) and Agile methodologies",
+            "Experience using version control systems such as Git, Bitbucket, and GitHub",
+            "Basic knowledge of cloud platforms like AWS",
+            "Knowledge of DevOps principles",
+            "Ability to work independently with minimal supervision",
+            "Strong problem-solving and proactive mindset"
+        ]
+    };
+
+    const Section = ({ title, children }) => (
+        <section className="mb-5">
+
+            <h2 className="text-[16px] font-semibold uppercase tracking-wide text-gray-800">
+                {title}
+            </h2>
+
+            <div className="border-t border-gray-300 mt-1 mb-3"></div>
+
+            {children}
+
+        </section>
+    );
+
     return (
-        <div className="page resume bg-gray-50 py-10">
+        <div className="bg-gray-100 py-12 flex justify-center font-[Hind_Siliguri]">
 
-            <div className="resume-box with-photo flex w-[900px] mx-auto bg-white shadow-xl rounded-lg overflow-hidden">
+            <div className="w-[820px] bg-white px-12 py-10 shadow-sm print:shadow-none">
 
-                {/* LEFT SIDEBAR */}
+                {/* HEADER */}
 
-                <div className="left-box w-[300px] bg-gray-100 p-6">
+                <div className="text-center mb-2">
 
-                    <div className="name--title mt-2">
-                        <h1 className="text-lg font-bold">Md. Suman Sarkar</h1>
-                        <h5 className="text-blue-600 font-semibold">
-                            Software Engineer
-                        </h5>
-                    </div>
+                    <h1 className="text-[32px] font-bold tracking-wide text-gray-900">
+                        {resume.name}
+                    </h1>
 
-                    {/* PERSONAL DETAILS */}
-
-                    <h5 className="text-blue-700 font-bold border-b border-blue-500 pb-1 mb-3">
-                        Personal Details
-                    </h5>
-
-                    <ul className="space-y-2 text-sm">
-
-                        <li className="flex items-center space-x-2">
-                            <img src="/imgs/leetcode.svg" alt="" />
-                            <span>@suman_sarkar</span>
-                        </li>
-
-                        <li className="flex items-center space-x-2">
-                            <img src="/imgs/github.png" width={16} height={16} alt="" />
-                            <span>@sumancse26</span>
-                        </li>
-
-                        <li className="flex items-center space-x-2">
-                            <img src="/imgs/linkedin.png" width={16} height={16} alt="" />
-                            <span>@suman-iu</span>
-                        </li>
-
-                        <li className="flex items-center space-x-2">
-                            <img src="/imgs/phone.png" width={16} height={16} alt="" />
-                            <span>+880 1796 844 288</span>
-                        </li>
-
-                        <li className="flex items-center space-x-2">
-                            <img src="/imgs/email.png" width={16} height={16} alt="" />
-                            <span>suman.iu32@gmail.com</span>
-                        </li>
-
-                        <li className="flex items-start space-x-2">
-                            <img src="/imgs/location.png" width={16} height={16} alt="" />
-                            <p>
-                                Tejgaon Industrial Area <br />
-                                29/C & 29/D, Dhaka
-                            </p>
-                        </li>
-
-                    </ul>
-
-                    {/* EDUCATION */}
-
-                    <h5 className="text-blue-700 font-bold border-b border-blue-500 pb-1 mt-6 mb-3">
-                        Education
-                    </h5>
-
-                    <div className="text-sm space-y-3">
-
-                        <div>
-                            <p>
-                                <strong>M.Sc in CSE</strong> (2.76) - 2018
-                            </p>
-                            <p className="italic">Islamic University</p>
-                            <p>Kushtia, Bangladesh</p>
-                        </div>
-
-                        <div>
-                            <p>
-                                <strong>B.Sc in CSE</strong> (3.04) - 2017
-                            </p>
-                            <p className="italic">Islamic University</p>
-                            <p>Kushtia, Bangladesh</p>
-                        </div>
-
-                    </div>
-
-                    {/* KEY SKILLS */}
-
-                    <h5 className="text-blue-700 font-bold border-b border-blue-500 pb-1 mt-6 mb-3">
-                        Key Skills
-                    </h5>
-
-                    <div className="flex flex-wrap gap-2 text-xs">
-
-                        <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full">
-                            JavaScript
-                        </span>
-
-                        <span className="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full">
-                            React.js
-                        </span>
-
-                        <span className="px-3 py-1 bg-pink-100 text-pink-700 rounded-full">
-                            Next.js
-                        </span>
-
-                        <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full">
-                            TypeScript
-                        </span>
-
-                        <span className="px-3 py-1 bg-teal-100 text-teal-700 rounded-full">
-                            Nest.js
-                        </span>
-
-                    </div>
-
-                    {/* TRAINING */}
-
-                    <h5 className="text-blue-700 font-bold border-b border-blue-500 pb-1 mt-6 mb-3">
-                        Training
-                    </h5>
-
-                    <div className="text-sm space-y-2">
-
-                        <p className="font-semibold text-blue-700">
-                            Web Development with React, Next, Prisma
-                        </p>
-
-                        <p className="italic">Ostad Ltd, Dhaka</p>
-
-                        <ul className="list-disc ml-4 space-y-1">
-                            <li>State management</li>
-                            <li>Performance optimization</li>
-                            <li>Lazy loading</li>
-                            <li>Context API</li>
-                            <li>Reusable components</li>
-                        </ul>
-
-                    </div>
+                    <p className="text-[20px] text-gray-600 font-medium">
+                        {resume.title}
+                    </p>
 
                 </div>
 
-                {/* RIGHT CONTENT */}
+                {/* CONTACT */}
 
-                <div className="right-box flex-1 p-8">
+                <div className="flex justify-center gap-10 text-[14px] text-gray-700 mb-2">
 
-                    {/* SUMMARY */}
+                    <a href={`tel:${resume.contact.phone}`} className="hover:underline text-blue-700">
+                        📞 {resume.contact.phone}
+                    </a>
 
-                    <h5 className="text-blue-700 font-bold border-b border-blue-500 pb-1 mb-3">
-                        Summary
-                    </h5>
+                    <a href={`mailto:${resume.contact.email}`} className="hover:underline text-blue-700">
+                        ✉ {resume.contact.email}
+                    </a>
 
-                    <p className="text-sm leading-relaxed mb-6">
-                        Self-motivated and performance-driven Web Developer with 4+ years
-                        of experience building web applications, updating existing systems,
-                        and fixing bugs while collaborating in professional development
-                        environments.
-                    </p>
+                    <span>📍 {resume.contact.location}</span>
 
-                    {/* EXPERIENCE */}
+                </div>
 
-                    <h5 className="text-blue-700 font-bold border-b border-blue-500 pb-1 mb-5">
-                        Professional Experience
-                    </h5>
+                <div className="border-t border-gray-200 mb-3"></div>
 
-                    <ol className="relative border-l-2 border-blue-400 pl-6">
+                {/* SOCIAL */}
 
-                        <li className="mb-6">
+                <Section title="Social">
 
-                            <span className="absolute -left-[9px] w-4 h-4 bg-blue-500 rounded-full"></span>
+                    <div className="flex flex-wrap gap-8 text-[14px]">
 
-                            <h3 className="font-bold">
-                                Software Engineer
-                            </h3>
+                        <a href={`https://${resume.social.linkedin}`} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:underline">
+                            🔗 {resume.social.linkedin}
+                        </a>
 
-                            <p className="text-blue-700 text-sm">
-                                MononSoft Ltd (A Sister Concern of JMI Group)
-                            </p>
+                        <a href={`https://${resume.social.github}`} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:underline">
+                            💻 {resume.social.github}
+                        </a>
 
-                            <div className="flex justify-between text-xs text-gray-600 mb-3">
-                                <span>Dec 2021 - Present</span>
-                                <span>52 New Eskaton Road, Dhaka</span>
-                            </div>
+                        <a href={`https://${resume.social.portfolio}`} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:underline">
+                            🌐 {resume.social.portfolio}
+                        </a>
 
-                            <ul className="list-disc ml-4 space-y-1 text-sm">
-
-                                <li>Develop ERP using React.js and Laravel</li>
-
-                                <li>
-                                    Production Planning (PP), Material Management (MM),
-                                    Finance and Controlling (FICO)
-                                </li>
-
-                                <li>Creating and implementing application source code</li>
-
-                                <li>Testing and debugging code</li>
-
-                                <li>Updating and improving existing applications</li>
-
-                            </ul>
-
-                        </li>
-
-                    </ol>
-
-                    {/* SKILLS */}
-
-                    <h5 className="text-blue-700 font-bold border-b border-blue-500 pb-1 mb-3">
-                        Skills & Expertise
-                    </h5>
-
-                    <ul className="list-disc ml-5 space-y-1 text-sm mb-6">
-
-                        <li>Reusable components using React and Next.js</li>
-
-                        <li>Responsive UI development with TailwindCSS</li>
-
-                        <li>Frontend architecture best practices</li>
-
-                        <li>TypeScript for maintainable code</li>
-
-                        <li>State management and TanStack Query</li>
-
-                        <li>CI/CD deployment pipelines</li>
-
-                    </ul>
-
-                    {/* PROJECTS */}
-
-                    <h5 className="text-blue-700 font-bold border-b border-blue-500 pb-1 mb-3">
-                        Projects
-                    </h5>
-
-                    <ul className="list-disc ml-5 space-y-1 text-sm mb-6">
-
-                        <li>E-learning platform using Nest.js, Next.js and Prisma</li>
-
-                        <li>Multivendor eCommerce website</li>
-
-                        <li>POS inventory management system</li>
-
-                        <li>Realtime chat application</li>
-
-                    </ul>
-
-                    {/* LIVE PROJECTS */}
-
-                    <h5 className="text-blue-700 font-bold border-b border-blue-500 pb-1 mb-3">
-                        Live Projects
-                    </h5>
-
-                    <div className="space-y-2">
-
-                        <div className="border rounded-lg bg-gray-50 px-3 py-2 shadow-sm">
-
-                            <p className="font-semibold text-sm">
-                                Cybernetics IT BD
-                            </p>
-
-                            <p className="text-blue-600 text-xs">
-                                cyberneticsitbd.com
-                            </p>
-
-                        </div>
-
-                        <div className="border rounded-lg bg-gray-50 px-3 py-2 shadow-sm">
-
-                            <p className="font-semibold text-sm">
-                                Discount Shop (Pagoole)
-                            </p>
-
-                            <p className="text-blue-600 text-xs">
-                                discountshop.pagoole.com
-                            </p>
-
-                        </div>
+                        <a href={`https://${resume.social.leetcode}`} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:underline">
+                            🧠 {resume.social.leetcode}
+                        </a>
 
                     </div>
+
+                </Section>
+
+                {/* ABOUT */}
+
+                <Section title="About Me">
+                    <p className="text-[14px] leading-relaxed text-gray-700">
+                        {resume.about}
+                    </p>
+                </Section>
+
+                {/* SKILLS */}
+
+                <Section title="Skills">
+                    <div className="flex flex-wrap gap-2">
+                        {resume.skills.map((skill, i) => (
+                            <span key={i} className="px-3 py-1 text-[13px] bg-gray-100 border border-gray-200 rounded-md">
+                                {skill}
+                            </span>
+                        ))}
+                    </div>
+                </Section>
+
+                {/* EXPERIENCE */}
+
+                <Section title="Work Experience">
+                    {resume.experience.map((exp, i) => (
+                        <div key={i} className="mb-4">
+
+                            <div className="flex justify-between text-[14px] text-gray-600">
+                                <span>{exp.company}</span>
+                                <span>{exp.duration}</span>
+                            </div>
+
+                            <h3 className="text-[15px] font-semibold text-gray-900">
+                                {exp.role}
+                            </h3>
+
+                            <p className="text-[14px] text-gray-700 leading-relaxed">
+                                {exp.description}
+                            </p>
+
+                        </div>
+                    ))}
+                </Section>
+
+                {/* PROJECTS */}
+
+                <Section title="Projects">
+
+                    {resume.projects.map((project, i) => (
+                        <div key={i} className="mb-4">
+
+                            <h3 className="text-[15px] font-semibold text-gray-900">
+                                {project.name}
+                            </h3>
+
+                            <p className="text-[14px] text-gray-700 mb-1">
+                                {project.description}
+                            </p>
+
+                            <div className="flex gap-6 text-[13px] mb-2">
+
+                                <a href={`https://${project.github}`} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:underline">
+                                    💻 GitHub
+                                </a>
+
+                                <a href={`https://${project.live}`} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:underline">
+                                    🌐 Live Demo
+                                </a>
+
+                            </div>
+
+                            <div className="flex flex-wrap gap-2">
+                                {project.tech.map((tech, index) => (
+                                    <span key={index} className="px-2 py-1 text-[12px] bg-gray-100 border border-gray-200 rounded-md">
+                                        {tech}
+                                    </span>
+                                ))}
+                            </div>
+
+                        </div>
+                    ))}
+
+                </Section>
+
+                {/* PAGE BREAK */}
+
+                <div className="print:break-before-page print:pt-20">
+
+                    {/* EDUCATION */}
+
+                    <Section title="Education">
+                        {resume.education.map((edu, i) => (
+                            <div key={i} className="mb-4">
+
+                                <div className="flex justify-between text-[14px] text-gray-600">
+                                    <span>{edu.institute}</span>
+                                    <span>{edu.year}</span>
+                                </div>
+
+                                <h3 className="text-[15px] font-semibold text-gray-900">
+                                    {edu.degree}
+                                </h3>
+
+                                <p className="text-[14px] text-gray-700">
+                                    {edu.description}
+                                </p>
+
+                            </div>
+                        ))}
+                    </Section>
+
+                    {/* TRAINING */}
+
+                    <Section title="Training">
+                        {resume.training.map((t, i) => (
+                            <div key={i} className="mb-4">
+
+                                <h3 className="text-[15px] font-semibold text-gray-900">
+                                    {t.title}
+                                </h3>
+
+                                <p className="text-[13px] text-gray-500 mb-1">
+                                    {t.institute}
+                                </p>
+
+                                <ul className="list-disc ml-6 text-[14px] space-y-1 text-gray-700">
+                                    {t.description.map((item, index) => (
+                                        <li key={index}>{item}</li>
+                                    ))}
+                                </ul>
+
+                            </div>
+                        ))}
+                    </Section>
+
+                    {/* ADDITIONAL SKILLS */}
+
+                    <Section title="Additional Skills">
+                        <ul className="list-disc ml-6 text-[14px] space-y-1 text-gray-700">
+                            {resume.additionalSkills.map((skill, i) => (
+                                <li key={i}>{skill}</li>
+                            ))}
+                        </ul>
+                    </Section>
 
                 </div>
 
