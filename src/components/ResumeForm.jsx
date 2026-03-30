@@ -2,100 +2,212 @@ import React from "react";
 
 export default function ResumeForm({ data, setData }) {
 
+    // ✅ fallback safe data
+    const safeData = data || {
+        name: "",
+        title: "",
+        contact: { phone: "", email: "", location: "" },
+        social: { linkedin: "", github: "", portfolio: "", leetcode: "" },
+        about: "",
+        skills: [],
+        experience: [],
+        additionalSkills: []
+    };
+
+    // Handle top-level fields
     const handleChange = (e) => {
-        setData({ ...data, [e.target.name]: e.target.value });
+        setData({ ...safeData, [e.target.name]: e.target.value });
+    };
+
+    // Handle nested fields
+    const handleNestedChange = (section, field, value) => {
+        setData({
+            ...safeData,
+            [section]: {
+                ...safeData[section],
+                [field]: value
+            }
+        });
+    };
+
+    // Handle array fields
+    const handleArrayChange = (field, value) => {
+        setData({
+            ...safeData,
+            [field]: value.split(",").map(item => item.trim())
+        });
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-            <div className="container bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+        <div className="min-h-screen bg-gray-100 p-6 flex justify-center">
+            <div className="w-full max-w-4xl bg-white p-6 rounded-xl shadow">
 
-                <h2 className="text-2xl font-bold text-gray-800 mb-6">
+                <h2 className="text-2xl font-bold mb-6">
                     Resume Information
                 </h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* BASIC INFO */}
+                <section className="mb-6">
+                    <h3 className="font-semibold mb-3">Basic Info</h3>
 
-                    {/* Full Name */}
-                    <div>
-                        <label className="text-sm font-medium text-gray-600">
-                            Full Name
-                        </label>
+                    <div className="grid md:grid-cols-2 gap-4">
                         <input
                             name="name"
-                            placeholder="John Doe"
+                            value={safeData.name}
                             onChange={handleChange}
-                            className="w-full mt-1 border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                            placeholder="Full Name"
+                            className="input"
                         />
-                    </div>
 
-                    {/* Job Title */}
-                    <div>
-                        <label className="text-sm font-medium text-gray-600">
-                            Job Title
-                        </label>
                         <input
                             name="title"
-                            placeholder="Full Stack Developer"
+                            value={safeData.title}
                             onChange={handleChange}
-                            className="w-full mt-1 border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                            placeholder="Job Title"
+                            className="input"
                         />
                     </div>
+                </section>
 
-                    {/* Phone */}
-                    <div>
-                        <label className="text-sm font-medium text-gray-600">
-                            Phone
-                        </label>
+                {/* CONTACT */}
+                <section className="mb-6">
+                    <h3 className="font-semibold mb-3">Contact</h3>
+
+                    <div className="grid md:grid-cols-2 gap-4">
                         <input
-                            name="phone"
-                            placeholder="+8801XXXXXXXXX"
-                            onChange={handleChange}
-                            className="w-full mt-1 border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                            value={safeData.contact?.phone || ""}
+                            onChange={(e) => handleNestedChange("contact", "phone", e.target.value)}
+                            placeholder="Phone"
+                            className="input"
                         />
-                    </div>
 
-                    {/* Email */}
-                    <div>
-                        <label className="text-sm font-medium text-gray-600">
-                            Email
-                        </label>
                         <input
-                            name="email"
-                            placeholder="example@email.com"
-                            onChange={handleChange}
-                            className="w-full mt-1 border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                            value={safeData.contact?.email || ""}
+                            onChange={(e) => handleNestedChange("contact", "email", e.target.value)}
+                            placeholder="Email"
+                            className="input"
+                        />
+
+                        <input
+                            value={safeData.contact?.location || ""}
+                            onChange={(e) => handleNestedChange("contact", "location", e.target.value)}
+                            placeholder="Location"
+                            className="input md:col-span-2"
                         />
                     </div>
+                </section>
 
-                </div>
+                {/* SOCIAL */}
+                <section className="mb-6">
+                    <h3 className="font-semibold mb-3">Social Links</h3>
 
-                {/* Address */}
-                <div className="mt-4">
-                    <label className="text-sm font-medium text-gray-600">
-                        Address
-                    </label>
-                    <input
-                        name="address"
-                        placeholder="Dhaka, Bangladesh"
-                        onChange={handleChange}
-                        className="w-full mt-1 border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
-                    />
-                </div>
+                    <div className="grid md:grid-cols-2 gap-4">
+                        <input
+                            value={safeData.social?.linkedin || ""}
+                            onChange={(e) => handleNestedChange("social", "linkedin", e.target.value)}
+                            placeholder="LinkedIn"
+                            className="input"
+                        />
 
-                {/* Summary */}
-                <div className="mt-4">
-                    <label className="text-sm font-medium text-gray-600">
-                        Professional Summary
-                    </label>
+                        <input
+                            value={safeData.social?.github || ""}
+                            onChange={(e) => handleNestedChange("social", "github", e.target.value)}
+                            placeholder="GitHub"
+                            className="input"
+                        />
+
+                        <input
+                            value={safeData.social?.portfolio || ""}
+                            onChange={(e) => handleNestedChange("social", "portfolio", e.target.value)}
+                            placeholder="Portfolio"
+                            className="input"
+                        />
+
+                        <input
+                            value={safeData.social?.leetcode || ""}
+                            onChange={(e) => handleNestedChange("social", "leetcode", e.target.value)}
+                            placeholder="LeetCode"
+                            className="input"
+                        />
+                    </div>
+                </section>
+
+                {/* SUMMARY */}
+                <section className="mb-6">
+                    <h3 className="font-semibold mb-3">Summary</h3>
+
                     <textarea
-                        name="summary"
-                        placeholder="Write a short professional summary..."
+                        value={safeData.about || ""}
+                        onChange={(e) => setData({ ...safeData, about: e.target.value })}
                         rows="4"
-                        onChange={handleChange}
-                        className="w-full mt-1 border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                        className="input w-full"
                     />
-                </div>
+                </section>
+
+                {/* SKILLS */}
+                <section className="mb-6">
+                    <h3 className="font-semibold mb-3">Skills (comma separated)</h3>
+
+                    <input
+                        value={(safeData.skills || []).join(", ")}
+                        onChange={(e) => handleArrayChange("skills", e.target.value)}
+                        className="input w-full"
+                    />
+                </section>
+
+                {/* EXPERIENCE */}
+                <section className="mb-6">
+                    <h3 className="font-semibold mb-3">Experience</h3>
+
+                    {(safeData.experience || []).map((exp, index) => (
+                        <div key={index} className="border p-4 rounded mb-3">
+
+                            <input
+                                value={exp?.company || ""}
+                                onChange={(e) => {
+                                    const newExp = [...safeData.experience];
+                                    newExp[index].company = e.target.value;
+                                    setData({ ...safeData, experience: newExp });
+                                }}
+                                placeholder="Company"
+                                className="input mb-2"
+                            />
+
+                            <input
+                                value={exp?.role || ""}
+                                onChange={(e) => {
+                                    const newExp = [...safeData.experience];
+                                    newExp[index].role = e.target.value;
+                                    setData({ ...safeData, experience: newExp });
+                                }}
+                                placeholder="Role"
+                                className="input mb-2"
+                            />
+
+                            <textarea
+                                value={(exp?.description || []).join("\n")}
+                                onChange={(e) => {
+                                    const newExp = [...safeData.experience];
+                                    newExp[index].description = e.target.value.split("\n");
+                                    setData({ ...safeData, experience: newExp });
+                                }}
+                                placeholder="Responsibilities (one per line)"
+                                className="input w-full"
+                            />
+                        </div>
+                    ))}
+                </section>
+
+                {/* ADDITIONAL SKILLS */}
+                <section>
+                    <h3 className="font-semibold mb-3">Additional Skills</h3>
+
+                    <input
+                        value={(safeData.additionalSkills || []).join(", ")}
+                        onChange={(e) => handleArrayChange("additionalSkills", e.target.value)}
+                        className="input w-full"
+                    />
+                </section>
 
             </div>
         </div>
