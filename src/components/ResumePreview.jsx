@@ -2,7 +2,7 @@ const ResumePreview = () => {
 
     const resume = {
         name: "MD. SUMAN SARKAR",
-        title: "Software Engineer",
+        title: "Full Stack Software Engineer",
 
         contact: {
             phone: "+8801796844288",
@@ -13,17 +13,17 @@ const ResumePreview = () => {
         social: {
             linkedin: "www.linkedin.com/in/suman-iu",
             github: "github.com/sumancse26",
-            portfolio: "developer-portfolio-silk-one.vercel.app",
+            portfolio: "https://developer-portfolio-silk-one.vercel.app/",
             leetcode: "leetcode.com/u/suman_sarkar"
         },
 
         about:
-            "Frontend and Full Stack Software Engineer with 4+ years of experience in React.js, Next.js, NestJS, Express.js, and PostgreSQL. Skilled in building scalable web applications, responsive UI development, RESTful API design and integration, and enterprise ERP systems. Strong focus on clean code and performance.",
+            "Full Stack Software Engineer with 4+ years of experience designing and building end-to-end web applications. Strong on the frontend with React.js and Next.js, and equally capable on the backend with NestJS, Express.js, and PostgreSQL. Skilled in RESTful API design and integration, responsive UI development, and enterprise ERP systems. Strong focus on clean code, scalability, and performance.",
 
         skills: [
-            <><strong>JavaScript</strong></>, <><strong>TypeScript</strong></>, <><strong>React.js</strong></>, <><strong>Next.js</strong></>, <><strong>Redux</strong></>, <><strong>Node.js</strong></>,
-            <><strong>Nest.js</strong></>, <><strong>Express.js</strong></>, <><strong>TailwindCSS</strong></>, <><strong>REST APIs</strong></>,
-            <><strong>Git</strong></>, <><strong>Docker</strong></>, <><strong>CI/CD</strong></>, <><strong>Prisma</strong></>, <><strong>PostGreSQL</strong></>, <><strong>MySQL</strong></>
+            "JavaScript", "TypeScript", "React.js", "Next.js", "Redux", "Node.js",
+            "Nest.js", "Express.js", "TailwindCSS", "REST APIs", "GraphQL",
+            "Git", "Docker", "CI/CD", "Prisma", "PostgreSQL", "MySQL", "MongoDB"
         ],
 
         experience: [
@@ -32,9 +32,9 @@ const ResumePreview = () => {
                 duration: "Dec 2021 – Present",
                 role: "Software Engineer",
                 description: [
-                    <>Developed ERP modules (<strong>SD, PP, MM, FICO</strong>) with <strong> React.js</strong>.</>,
-                    "Built scalable UI using React.js and integrated REST APIs.",
-                    "Improved performance and implemented business workflows."
+                    <>Developed ERP modules (<strong>SD, PP, MM, FICO, HRM</strong>) with <strong> React.js</strong> on the frontend.</>,
+                    "Built scalable full stack features with React.js, integrated and developed REST APIs using Node.js/Nest.js.",
+                    "Improved application performance and implemented end-to-end business workflows."
                 ]
             }
         ],
@@ -51,7 +51,14 @@ const ResumePreview = () => {
                 description: "E-commerce app with authentication, manage multiple vendor, product management, order managementand payment integration.",
                 live: "https://discountshop.pagoole.com/",
                 tech: ["React.js", "Next.js", "Node.js", "Prisma", "PostgreSQL"]
-            }
+            },
+            {
+                name: "Inventory Management System",
+                description: "Designed and developed a full stack inventory and warehouse management system. Built a product catalog with stock tracking, purchase and sales order workflows, and supplier management. Implemented role-based admin dashboards with low-stock alerts and real-time inventory updates. Developed secure REST APIs and integrated PostgreSQL persistence via Prisma.",
+                live: "https://emojud.vercel.app",
+                credentials: "Username: suman  |  Password: 12345678",
+                tech: ["React.js", "Next.js", "TypeScript", "Node.js", "Nest.js", "Prisma", "PostgreSQL"]
+            },
         ],
 
         education: [
@@ -85,18 +92,20 @@ const ResumePreview = () => {
             <>Develop, maintain, and optimize reusable frontend components using <strong>React.js</strong>, <strong>Redux</strong> and <strong>Next.js</strong> (App Router).</>,
             "Implement responsive and interactive UIs in collaboration with product designers and backend teams.",
             <>Use <strong>TailwindCSS</strong>, CSS, and styling libraries to build clean, scalable UI systems.</>,
-            <>Develop backend APIs and services using <strong>Nest.js</strong> and <strong>Express</strong> frameworks.</>,
-            "Architect frontend codebases following industry best practices, design patterns, and performance standards.",
+            <>Develop robust backend APIs, services, and microservices using <strong>Nest.js</strong> and <strong>Express</strong> frameworks.</>,
+            <>Design and optimize relational and NoSQL databases (<strong>PostgreSQL, MySQL, MongoDB</strong>) with <strong>Prisma</strong> ORM.</>,
+            "Architect full stack codebases following industry best practices, design patterns, and performance standards.",
             "Work with micro frontends and micro repo/mono repo structures to build large-scale modular applications.",
             "Build and maintain internal design systems and component libraries.",
-            <>Utilize <strong>TypeScript</strong> to write readable, maintainable, and strongly typed code.</>,
+            <>Utilize <strong>TypeScript</strong> to write readable, maintainable, and strongly typed code across frontend and backend.</>,
             "Optimize application performance, SEO, and overall user experience.",
             <>Work with state management libraries (<strong>Redux</strong>) and <strong>TanStack Query</strong> for client/server state synchronization.</>,
+            "Implement authentication, authorization, and secure REST/GraphQL API integrations.",
             "Maintain high code quality using linting tools, formatting standards, and Git workflows.",
             "Participate in release processes and CI/CD pipelines for smooth deployments.",
-            <>A solid foundation on <strong>OOP, Algorithm, Data Structure</strong>, knowledge of <strong>REST APIs</strong>.</>,
-            <>Experienced with <strong>PostgreSQL, MongoDB, MySQL, Prisma</strong> <strong>SDLC</strong> and <strong>Agile</strong> methodologies.</>,
-            <>Version control with <strong>Git, GitHub</strong>; basic knowledge of <strong>Docker</strong>.</>
+            <>A solid foundation on <strong>OOP, Algorithm, Data Structure</strong>, knowledge of <strong>REST APIs</strong> and <strong>GraphQL</strong>.</>,
+            <>Experienced with <strong>SDLC</strong> and <strong>Agile</strong> methodologies.</>,
+            <>Version control with <strong>Git, GitHub</strong>; containerization with <strong>Docker</strong>.</>
 
         ]
     };
@@ -121,17 +130,17 @@ const ResumePreview = () => {
                     <h1 className="text-[24px] font-bold text-gray-900">
                         {resume.name}
                     </h1>
-                    <p className="text-[20px] text-gray-600 font-medium">
+                    <p className="text-[18px] text-gray-600 font-medium">
                         {resume.title}
                     </p>
                 </div>
 
                 {/* CONTACT */}
                 <div className="flex justify-center gap-6 text-[13px] text-gray-700 mb-2">
-                    <a href={`tel:${resume.contact.phone}`} className="text-blue-700">
+                    <a href={`tel:${resume.contact.phone}`} className="text-gray-700 hover:text-blue-700">
                         📞 {resume.contact.phone}
                     </a>
-                    <a href={`mailto:${resume.contact.email}`} className="text-blue-700">
+                    <a href={`mailto:${resume.contact.email}`} className="text-gray-700 hover:text-blue-700">
                         ✉ {resume.contact.email}
                     </a>
                     <span>📍 {resume.contact.location}</span>
@@ -144,19 +153,19 @@ const ResumePreview = () => {
                     <div className="flex flex-wrap gap-4 text-[13px]">
                         <div className="flex items-center gap-1">
                             <img src="/images/linkedin.png" alt="LinkedIn" className="w-4 h-4" />
-                            <a href={`https://${resume.social.linkedin}`} className="text-blue-700">LinkedIn</a>
+                            <a href={`https://${resume.social.linkedin}`} className="text-gray-700 hover:text-blue-700">LinkedIn</a>
                         </div>
 
                         <div className="flex items-center gap-1">
                             <img src="/images/github.png" alt="GitHub" className="w-4 h-4" />
-                            <a href={`https://${resume.social.github}`} className="text-blue-700">GitHub</a>
+                            <a href={`https://${resume.social.github}`} className="text-gray-700 hover:text-blue-700">GitHub</a>
                         </div>
                         <div className="flex items-center gap-1">
-                            <a href={`https://${resume.social.portfolio}`} className="text-blue-700">🌐 Portfolio</a>
+                            <a href={`https://${resume.social.portfolio}`} className="text-gray-700 hover:text-blue-700">🌐 Portfolio</a>
                         </div>
                         <div className="flex items-center gap-1">
                             <img src="/images/leetcode.svg" alt="LeetCode" className="w-4 h-4" />
-                            <a href={`https://${resume.social.leetcode}`} className="text-blue-700">LeetCode</a>
+                            <a href={`https://${resume.social.leetcode}`} className="text-gray-700 hover:text-blue-700">LeetCode</a>
                         </div>
                     </div>
                 </Section>
@@ -172,7 +181,7 @@ const ResumePreview = () => {
                 <Section title="Skills">
                     <div className="flex flex-wrap gap-1">
                         {resume.skills.map((skill, i) => (
-                            <span key={i} className="px-2 py-0.5 text-[12.5px] bg-gray-100 border rounded">
+                            <span key={i} className="px-2 py-0.5 text-[12.5px] bg-gray-100 border border-gray-200 rounded text-gray-800">
                                 {skill}
                             </span>
                         ))}
@@ -184,11 +193,11 @@ const ResumePreview = () => {
                     {resume.experience.map((exp, i) => (
                         <div key={i} className="mb-3">
                             <div className="flex justify-between text-[13px] text-gray-800">
-                                <span>{exp.company}</span>
-                                <span>{exp.duration}</span>
+                                <span className="font-semibold">{exp.company}</span>
+                                <span className="text-gray-600">{exp.duration}</span>
                             </div>
-                            <h3 className="text-[14px] font-semibold">{exp.role}</h3>
-                            <ul className="list-disc ml-5 text-[13px] space-y-0.5">
+                            <h3 className="text-[14px] font-semibold text-gray-900">{exp.role}</h3>
+                            <ul className="list-disc ml-5 text-[13px] space-y-0.5 text-gray-700">
                                 {exp.description.map((desc, i) => (
                                     <li key={i}>{desc}</li>
                                 ))}
@@ -201,17 +210,22 @@ const ResumePreview = () => {
                 <Section title="Projects">
                     {resume.projects.map((project, i) => (
                         <div key={i} className="mb-3">
-                            <h3 className="text-[14px] font-semibold">{project.name}</h3>
+                            <h3 className="text-[14px] font-semibold text-gray-900">{project.name}</h3>
                             <p className="text-[13px] text-gray-700 mb-1">{project.description}</p>
 
-                            <div className="flex gap-4 text-[13px] mb-1">
+                            <div className="flex flex-wrap gap-4 text-[13px] mb-1">
                                 {/* <a href={`${project.github}`} className="text-blue-700">GitHub</a> */}
-                                <a href={`${project.live}`} target="_blank" className="text-blue-700">Live Link</a>
+                                {project.live && (
+                                    <a href={`${project.live}`} target="_blank" className="inline-flex items-center rounded bg-blue-600 px-2 py-0.5 font-semibold text-white hover:bg-blue-700">Live Link</a>
+                                )}
+                                {project.credentials && (
+                                    <span className="text-gray-600">Credentials: {project.credentials}</span>
+                                )}
                             </div>
 
                             <div className="flex flex-wrap gap-1">
                                 {project.tech.map((tech, index) => (
-                                    <span key={index} className="px-2 py-0.5 text-[11px] bg-gray-100 border rounded">
+                                    <span key={index} className="px-2 py-0.5 text-[11px] bg-gray-100 border border-gray-200 rounded text-gray-800">
                                         {tech}
                                     </span>
                                 ))}
@@ -220,23 +234,25 @@ const ResumePreview = () => {
                     ))}
                 </Section>
 
-                {/* TRAINING */}
-                <Section title="Training">
-                    {resume.training.map((t, i) => (
-                        <div key={i} className="mb-3">
-                            <h3 className="text-[14px] font-semibold">{t.title}</h3>
-                            <p className="text-[12px] text-gray-500 mb-1">{t.institute}</p>
-                            <ul className="list-disc ml-5 text-[13px] space-y-0.5">
-                                {t.description.map((item, index) => (
-                                    <li key={index}>{item}</li>
-                                ))}
-                            </ul>
-                        </div>
-                    ))}
-                </Section>
+                {/* TRAINING (starts on page 2) */}
+                <div className="training-page-break">
+                    <Section title="Training">
+                        {resume.training.map((t, i) => (
+                            <div key={i} className="mb-3">
+                                <h3 className="text-[14px] font-semibold text-gray-900">{t.title}</h3>
+                                <p className="text-[12px] text-gray-600 mb-1">{t.institute}</p>
+                                <ul className="list-disc ml-5 text-[13px] space-y-0.5 text-gray-700">
+                                    {t.description.map((item, index) => (
+                                        <li key={index}>{item}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))}
+                    </Section>
+                </div>
 
-                {/* PAGE BREAK */}
-                <div className="print:break-before-page print:pt-8">
+                {/* EDUCATION + ADDITIONAL SKILLS (flows naturally, no forced page break) */}
+                <div className="print:pt-0">
 
                     {/* EDUCATION */}
                     <Section title="Education">
@@ -246,7 +262,7 @@ const ResumePreview = () => {
                                     <span>{edu.institute}</span>
                                     <span>{edu.year}</span>
                                 </div>
-                                <h3 className="text-[14px] font-semibold">{edu.degree}</h3>
+                                <h3 className="text-[14px] font-semibold text-gray-900">{edu.degree}</h3>
                                 <p className="text-[13px]">{edu.description}</p>
                             </div>
                         ))}
@@ -256,7 +272,7 @@ const ResumePreview = () => {
 
                     {/* ADDITIONAL SKILLS */}
                     <Section title="Additional Skills">
-                        <ul className="list-disc ml-5 text-[13px] space-y-0.5">
+                        <ul className="list-disc ml-5 text-[13px] space-y-0.5 text-gray-700">
                             {resume.additionalSkills.map((skill, i) => (
                                 <li key={i}>{skill}</li>
                             ))}

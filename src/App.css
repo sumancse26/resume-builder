@@ -229,7 +229,17 @@ body {
         box-shadow: none;
         height: auto;
         width: 100%;
-        padding: 12mm !important;
+        padding: 8mm 10mm !important;
+    }
+
+    /* Remove the top border on the first section of page 1 */
+    .page.resume > div > section:first-of-type > div:first-of-type {
+        border-top: none !important;
+    }
+
+    /* Add breathing room from the top of page 1 */
+    .page.resume {
+        padding-top: 6mm !important;
     }
 
     /* High contrast + ATS safe */
@@ -239,27 +249,57 @@ body {
         print-color-adjust: exact !important;
         font-family: Arial, Helvetica, sans-serif !important;
         color: #000 !important;
-        font-weight: 500;
     }
 
-    /* 🔥 MAIN FIX: readable font */
-    .page.resume p,
-    .page.resume span,
-    .page.resume li {
-        font-size: 15px !important;
-        line-height: 1.5 !important;
+    /* Compact, screen-matching sizing so it fits 2 pages */
+    .page.resume {
+        line-height: 1.25 !important;
+        letter-spacing: 0.1px;
     }
 
-    /* Headings */
     .page.resume h1 {
-        font-size: 28px !important;
+        font-size: 22px !important;
         font-weight: 700 !important;
     }
 
     .page.resume h2,
     .page.resume .subtitle {
-        font-size: 17px !important;
+        font-size: 13px !important;
         font-weight: 700 !important;
+        text-transform: uppercase;
+    }
+
+    .page.resume h3 {
+        font-size: 13px !important;
+        font-weight: 600 !important;
+    }
+
+    .page.resume p,
+    .page.resume span,
+    .page.resume li,
+    .page.resume a {
+        font-size: 12px !important;
+        line-height: 1.3 !important;
+        font-weight: 400;
+    }
+
+    /* Tighten section spacing */
+    .page.resume section {
+        margin-bottom: 0.5rem !important;
+    }
+
+    .page.resume .resume-box {
+        gap: 0.4rem !important;
+    }
+
+    .page.resume .name--title {
+        margin-top: 0 !important;
+        margin-bottom: 0.4rem !important;
+    }
+
+    .bullet-list {
+        margin-top: 0.15rem !important;
+        line-height: 1.25 !important;
     }
 
     /* Links */
@@ -275,20 +315,43 @@ body {
         background: none !important;
     }
 
-    /* Better spacing */
-    .page.resume {
-        line-height: 1.5;
+    /* Skills chips: clean print look */
+    .page.resume .bg-gray-100 {
+        background: #fff !important;
+        border-color: #000 !important;
     }
 
-    .page.resume .resume-box {
-        gap: 0.6rem;
+    .page.resume .bg-gray-100 span,
+    .page.resume .bg-gray-100 strong {
+        color: #000 !important;
+        font-size: 12px !important;
+        font-weight: 600;
     }
 
-    /* Prevent breaking */
-    .page.resume,
+    /* Training starts on page 2 with top gap */
+    .training-page-break {
+        break-before: page;
+        page-break-before: always;
+    }
+
+    @media print {
+        .training-page-break {
+            padding-top: 10mm !important;
+        }
+    }
+
+    /* Allow content to flow across pages; only avoid breaking inside small items */
     .page.resume .resume-box,
     .page.resume .left-box,
     .page.resume .right-box {
+        break-inside: auto;
+        page-break-inside: auto;
+    }
+
+    .page.resume li,
+    .page.resume .bullet,
+    .page.resume span,
+    .page.resume a {
         break-inside: avoid;
         page-break-inside: avoid;
     }
