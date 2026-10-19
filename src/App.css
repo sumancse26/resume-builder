@@ -150,9 +150,62 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
     color: rgb(var(--foreground-rgb));
     background: white;
+}
+
+.resume-document {
+    font-family: "Roboto", Arial, Helvetica, sans-serif !important;
+}
+
+/* Give the resume one extra pixel of type for easier HR review. */
+.resume-document .text-\[11px\] {
+    font-size: 12px !important;
+}
+
+.resume-document .text-\[12px\] {
+    font-size: 13px !important;
+}
+
+.resume-document .text-\[12\.5px\] {
+    font-size: 13.5px !important;
+}
+
+.resume-document .text-\[13px\] {
+    font-size: 14px !important;
+}
+
+.resume-document .text-\[14px\] {
+    font-size: 15px !important;
+}
+
+.resume-document .text-\[18px\] {
+    font-size: 19px !important;
+}
+
+.resume-document .text-\[24px\] {
+    font-size: 25px !important;
+}
+
+/* Resume readability: keep body copy dark enough for comfortable scanning. */
+.resume-document .text-gray-700,
+.resume-document .text-gray-600 {
+    color: #273449 !important;
+}
+
+.resume-document .text-gray-800,
+.resume-document .text-gray-900 {
+    color: #111827 !important;
+}
+
+.resume-document a {
+    color: #155e75;
+    font-weight: 600;
+}
+
+.resume-document a:hover {
+    color: #0e7490;
 }
 
 .input {
@@ -307,6 +360,30 @@ body {
         color: #000 !important;
         text-decoration: underline !important;
         font-weight: 600;
+    }
+
+    .resume-document,
+    .resume-document p,
+    .resume-document li,
+    .resume-document span {
+        color: #111827 !important;
+    }
+
+    .resume-document .text-gray-700,
+    .resume-document .text-gray-600,
+    .resume-document .text-gray-800,
+    .resume-document .text-gray-900 {
+        color: #111827 !important;
+    }
+
+    .resume-document a {
+        color: #111827 !important;
+        text-decoration: underline !important;
+    }
+
+    .resume-document,
+    .resume-document * {
+        font-family: "Roboto", Arial, Helvetica, sans-serif !important;
     }
 
     /* Remove background noise */

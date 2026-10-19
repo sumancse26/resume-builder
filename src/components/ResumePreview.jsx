@@ -1,6 +1,25 @@
 import { useState } from "react";
 import { defaultResume } from "./resumeData";
 
+const toExternalUrl = (value) => {
+    const url = String(value || "").trim();
+
+    if (!url) return "";
+    if (/^(https?:\/\/|mailto:|tel:)/i.test(url)) return url;
+
+    return `https://${url}`;
+};
+
+const toPhoneUrl = (value) => {
+    const phone = String(value || "").trim().replace(/(?!^)\D/g, "");
+    return phone ? `tel:${phone}` : "";
+};
+
+const toEmailUrl = (value) => {
+    const email = String(value || "").trim();
+    return email ? `mailto:${email}` : "";
+};
+
 const Section = ({ title, children }) => (
     <section className="mb-4">
         <h2 className="text-[14px] font-semibold uppercase tracking-wide text-gray-800">
@@ -39,7 +58,12 @@ const ResumePreview = ({ data, setData }) => {
         setData({ ...resume, projects: next });
     };
 
-    const downloadPdf = () => window.print();
+    const downloadPdf = () => {
+        // Printing while editing would capture inputs instead of the anchor
+        // elements that browsers turn into clickable PDF annotations.
+        setEditing(false);
+        window.setTimeout(() => window.print(), 0);
+    };
 
     return (
         <div className="bg-gray-100 py-5 flex justify-center font-[Hind_Siliguri] print:bg-white print:py-0">
@@ -60,7 +84,7 @@ const ResumePreview = ({ data, setData }) => {
                 </button>
             </div>
 
-            <div className="w-[820px] bg-white px-10 py-2 shadow-sm print:text-[13px] print:shadow-none mt-12 print:mt-0">
+            <div className="resume-document w-[820px] bg-white px-10 py-2 shadow-sm print:text-[13px] print:shadow-none mt-12 print:mt-0">
 
                 {/* HEADER */}
                 <div className="text-center mb-2 mt-5">
@@ -89,8 +113,8 @@ const ResumePreview = ({ data, setData }) => {
                         </div>
                     ) : (
                         <>
-                            <a href={`tel:${resume.contact.phone}`} className="text-gray-700 hover:text-blue-700">📞 {resume.contact.phone}</a>
-                            <a href={`mailto:${resume.contact.email}`} className="text-gray-700 hover:text-blue-700">✉ {resume.contact.email}</a>
+                            <a href={toPhoneUrl(resume.contact.phone)} className="text-gray-700 hover:text-blue-700">📞 {resume.contact.phone}</a>
+                            <a href={toEmailUrl(resume.contact.email)} className="text-gray-700 hover:text-blue-700">✉ {resume.contact.email}</a>
                             <span>📍 {resume.contact.location}</span>
                         </>
                     )}
@@ -111,18 +135,18 @@ const ResumePreview = ({ data, setData }) => {
                         <div className="flex flex-wrap gap-4 text-[13px]">
                             <div className="flex items-center gap-1">
                                 <img src="/images/linkedin.png" alt="LinkedIn" className="w-4 h-4" />
-                                <a href={`https://${resume.social.linkedin}`} className="text-gray-700 hover:text-blue-700">LinkedIn</a>
+                                <a href={toExternalUrl(resume.social.linkedin)} className="text-gray-700 hover:text-blue-700">LinkedIn</a>
                             </div>
                             <div className="flex items-center gap-1">
                                 <img src="/images/github.png" alt="GitHub" className="w-4 h-4" />
-                                <a href={`https://${resume.social.github}`} className="text-gray-700 hover:text-blue-700">GitHub</a>
+                                <a href={toExternalUrl(resume.social.github)} className="text-gray-700 hover:text-blue-700">GitHub</a>
                             </div>
                             <div className="flex items-center gap-1">
-                                <a href={`https://${resume.social.portfolio}`} className="text-gray-700 hover:text-blue-700">🌐 Portfolio</a>
+                                <a href={toExternalUrl(resume.social.portfolio)} className="text-gray-700 hover:text-blue-700">🌐 Portfolio</a>
                             </div>
                             <div className="flex items-center gap-1">
                                 <img src="/images/leetcode.svg" alt="LeetCode" className="w-4 h-4" />
-                                <a href={`https://${resume.social.leetcode}`} className="text-gray-700 hover:text-blue-700">LeetCode</a>
+                                <a href={toExternalUrl(resume.social.leetcode)} className="text-gray-700 hover:text-blue-700">LeetCode</a>
                             </div>
                         </div>
                     )}
@@ -199,7 +223,7 @@ const ResumePreview = ({ data, setData }) => {
                                     <p className="text-[13px] text-gray-700 mb-1">{project.description}</p>
                                     <div className="flex flex-wrap gap-4 text-[13px] mb-1">
                                         {project.live && (
-                                            <a href={`${project.live}`} target="_blank" rel="noreferrer" className="text-blue-700 underline hover:text-blue-800">Live Link</a>
+                                            <a href={toExternalUrl(project.live)} target="_blank" rel="noreferrer" className="text-blue-700 underline hover:text-blue-800">Live Link</a>
                                         )}
                                         {project.credentials && (
                                             <span className="text-gray-600">Credentials: {project.credentials}</span>
